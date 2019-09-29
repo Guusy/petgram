@@ -1,4 +1,6 @@
 import React from 'react'
+import { Category } from './components/category/Category'
 
-
-export const App = () => <h1>holaaa</h1>
+export const App = () => <div>
+    <Category />
+</div>
