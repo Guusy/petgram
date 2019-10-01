@@ -2,6 +2,7 @@ import React from 'react'
 import { PhotoCard } from "../components/photoCard/PhotoCard";
 import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
+import Spinner from '../components/spinner/Spinner';
 
 const GET_SINGLE_PHOTO = gql`
     query getSinglePhoto($id:ID!) {
@@ -18,7 +19,12 @@ const GET_SINGLE_PHOTO = gql`
 
 const renderProp = ({ loading, error, data = {} }) => {
     console.log(data)
-    if (loading) return <p>Loading....</p>
+    if (loading) return <div style={{
+        minHeigth: '280px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }}><Spinner style={{ minHeigth: '280px' }} /></div>
     if (error) return <p>Error.</p>
     const { photo = {} } = data
     return <PhotoCard {...photo} />
