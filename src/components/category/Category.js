@@ -1,11 +1,11 @@
 import React from 'react'
+import { Link, Image } from './styles'
 
 const DEFAULT_IMAGE = 'https://imgur.com/dJa0Hpl.jpg'
-import { Anchor, Image } from './styles'
 
-export const Category = ({ cover = DEFAULT_IMAGE, path, emoji = '?' }) => {
-    return <Anchor href={path}>
+export const Category = ({ cover = DEFAULT_IMAGE, path = '', emoji = '?' }) => {
+    return <Link to={path}>
         <Image src={cover} />
         {emoji}
-    </Anchor>
+    </Link>
 }
