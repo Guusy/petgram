@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import { App } from './App'
-import { from } from 'zen-observable'
+import Context from './Context'
 
 const client = new ApolloClient({
     uri: 'https://petgram-api-guusy.now.sh/graphql'
 })
 ReactDOM.render(
-    <ApolloProvider client={client}>
-        <App />
-    </ApolloProvider>,
+    <Context.Provider>
+        <ApolloProvider client={client}>
+            <App />
+        </ApolloProvider>
+    </Context.Provider>,
     document.getElementById('app'))
